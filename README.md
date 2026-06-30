@@ -1,6 +1,6 @@
 # AWS EventBridge Event Automation
 ![Project Banner](screenshots/eventbridge_banner.png)
-![Banner](screenshots/eventbridge_banner.png)
+
 
 ---
 
@@ -17,43 +17,6 @@ Ensure you have:
 
 ---
 
-## 🏗️ Architecture
-
-```text
-                      +----------------------+
-                      |   Amazon EventBridge |
-                      +----------+-----------+
-                                 |
-             +-------------------+-------------------+
-             |                                       |
-             |                                       |
-     Scheduled Rule                         Event Pattern Rule
- (Rate: Every 1 Hour)             (AWS Console Sign-In via CloudTrail)
-             |                                       |
-             |                                       |
-      Invoke Lambda                         Match CloudTrail Event
-             |                                       |
-      +------+-------+                       +--------+--------+
-      |              |                       |                 |
- Amazon Lambda                  Amazon SNS Topic (Email Alert)
-                                       |
-                                       |
-                              Email Notification
-
-                     Additional Rule
-
-            EC2 Instance State = Terminated
-                       |
-                Amazon EventBridge
-                       |
-                 Amazon SNS Topic
-                       |
-                Email Notification
-```
-
----
-
----
 ## 🏗️ Architecture
 
 ```text
@@ -108,7 +71,7 @@ Ensure you have:
 2. Select Lambda and create a new function named `DemoLambda`.
 3. Keep defaults and click "Next."
 
-![invoke_lambda](screenshots/screensots/invoke_lambda.png)
+![invoke_lambda](screenshots/invoke_lambda.png)
 
 ---
 
@@ -140,23 +103,6 @@ Ensure you have:
 ## Conclusion
 
 This project shows how EventBridge can automate responses to scheduled events (like Lambda) and real-time events (like sign-ins or EC2 terminations). Adjust the rules as needed to fit your automation needs.
-
----
-
-## 👨‍💻 Author
-
-**Elochukwu Princewill**
-
-Cloud | Cybersecurity | AWS Solutions Architecture | Linux | Networking
-
-> *Learning by building real-world cloud infrastructure projects.*
-
----
-
-## ⭐ If you found this project helpful
-
-Feel free to ⭐ star this repository and explore my other AWS hands-on projects as I continue building my cloud engineering portfolio.
-
 
 ---
 
